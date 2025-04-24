@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useData } from '../context/DataContext'
 import DataTable from '../components/DataTable'
-import ChartComponent from '../components/ChartComponent'
 import StatCard from '../components/StatCard'
 import SearchInput from '../components/SearchInput'
 
-const DataTableMem = React.memo(DataTable);
+const DataTableMem = React.memo(DataTable)
 
 const Dashboard: React.FC = () => {
   const [keyword, setKeyword] = useState('')
-  const { items, loading, error } = useData({keyword})
+  const { items, loading, error } = useData({ keyword })
 
   return (
     <div>
@@ -24,7 +23,6 @@ const Dashboard: React.FC = () => {
         <StatCard color="green" title="Active Users" value="567" />
         <StatCard color="yellow" title="New Signups" value="89" />
       </div>
-      {/* <ChartComponent data={items} type="bar" /> */}
       <DataTableMem loading={false} />
     </div>
   )
